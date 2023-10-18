@@ -1,0 +1,75 @@
+import { StyleSheet } from 'react-native';
+
+export const styles = StyleSheet.create({
+  fansText: {
+    fontSize: 32,
+    fontFamily: 'Inter-Regular',
+    fontWeight: '400',
+    color: '#000000de',
+  },
+  fansButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    minWidth: 64,
+    paddingVertical: 5,
+    paddingHorizontal: 15,
+    borderRadius: 4,
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: '#fd5751',
+    textAlign: 'center',
+  },
+  fansButtonText: {
+    fontSize: 14,
+    lineHeight: 28,
+    fontFamily: 'Roboto-Regular',
+    fontWeight: '500',
+    textTransform: 'uppercase',
+    color: '#fd5751',
+  },
+  fansBlockWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    columnGap: 16,
+  },
+  fansBlock: {
+    flexGrow: 1,
+    flexDirection: 'column',
+    backgroundColor: '#ffffff',
+    padding: 15,
+    borderRadius: 4,
+    color: '#000000de',
+  },
+  fansBlockCount: {
+    fontSize: 32,
+    fontFamily: 'Inter-Regular',
+    fontWeight: '400',
+    color: '#000000de',
+  },
+  fansBlockName: {
+    fontSize: 12,
+    fontFamily: 'Inter-Regular',
+    fontWeight: '400',
+    color: '#000000de',
+  },
+  bottomContainer: {
+    flexGrow: 1,
+    backgroundColor: '#ffffff',
+    padding: 15,
+    borderRadius: 4,
+    rowGap: 12,
+  },
+  inputWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    columnGap: 10,
+  },
+  input: {
+    flex: 1,
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    paddingHorizontal: 12,
+    borderRadius: 4,
+  },
+});
