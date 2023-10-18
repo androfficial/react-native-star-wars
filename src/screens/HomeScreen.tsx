@@ -17,8 +17,6 @@ import { useCharacterContext } from '@/hooks/useCharacterContext';
 import { IPageProps } from '@/navigation/navigationTypes';
 import { ScreenNames } from '@/types/ScreenNames';
 
-import { styles } from './styles';
-
 export const HomeScreen: FC<IPageProps<ScreenNames.HOME>> = ({ navigation }): JSX.Element => {
   const { characters, setCharacters } = useCharacterContext();
 
@@ -65,31 +63,36 @@ export const HomeScreen: FC<IPageProps<ScreenNames.HOME>> = ({ navigation }): JS
 
   return (
     <SafeAreaView className='grow bg-[#f6f5f3] p-[16px]'>
-      <View className='flex-col gap-y-[16px]'>
+      <View className='grow flex-col gap-y-[16px]'>
         <View className='flex-col gap-y-[16px]'>
           <View className='flex-row items-center justify-between'>
             <Text className='text-[32px] font-normal text-[#000000de]'>Fans</Text>
-            <TouchableOpacity onPress={() => {}} style={styles.fansButton}>
-              <Text style={styles.fansButtonText}>Clear Fans</Text>
+            <TouchableOpacity
+              onPress={() => {}}
+              className='min-w-[64px] items-center justify-center rounded-[4px] border border-solid border-[#fd5751] px-[15px] py-[5px] text-center'
+            >
+              <Text className='text-[14px] font-medium uppercase leading-[28px] text-[#fd5751]'>
+                Clear Fans
+              </Text>
             </TouchableOpacity>
           </View>
-          <View style={styles.fansBlockWrapper}>
+          <View className='flex-row items-center gap-x-[16px]'>
             {favoriteCharactersData.map((item, index) => (
-              <View key={index} style={styles.fansBlock}>
-                <Text style={styles.fansBlockCount}>{item.count}</Text>
-                <Text style={styles.fansBlockName}>{item.name}</Text>
+              <View key={index} className='grow flex-col rounded-[4px] bg-white p-[15px]'>
+                <Text className='text-[32px] font-normal text-[#000000de]'>{item.count}</Text>
+                <Text className='text-[12px] font-normal text-[#000000de]'>{item.name}</Text>
               </View>
             ))}
           </View>
         </View>
 
-        <View style={styles.bottomContainer}>
-          <View style={styles.inputWrapper}>
+        <View className='grow gap-y-[12px] rounded-[4px] bg-white p-[15px]'>
+          <View className='flex-row items-center gap-x-[10px]'>
             <Icon name='search' size={30} color='#4F8EF7' />
             <TextInput
               value={value}
               onChangeText={setValue}
-              style={styles.input}
+              className='h-[40px] grow rounded-[4px] border border-solid border-gray-500'
               placeholder='Search'
             />
           </View>

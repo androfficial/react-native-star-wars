@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { IPageProps } from '@/navigation/navigationTypes';
@@ -11,19 +11,11 @@ export const CharacterInfoScreen: FC<IPageProps<ScreenNames.CHARACTER_INFO>> = (
   return (
     <SafeAreaView>
       <View>
-        <Text style={styles.sectionContainer}>Character Info Screen</Text>
+        <Text className='mt-[40px] px-[16px] text-center text-[32px] font-bold'>
+          Character Info Screen
+        </Text>
         <Button title='Перейти на Home' onPress={() => navigation.navigate(ScreenNames.HOME)} />
       </View>
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    textAlign: 'center',
-    marginTop: 40,
-    paddingHorizontal: 16,
-    fontSize: 32,
-    fontWeight: '700',
-  },
-});

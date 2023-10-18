@@ -1,5 +1,5 @@
-import { CharacterInfoScreen } from '@/screens/CharacterInfoScreen/CharacterInfoScreen';
-import { HomeScreen } from '@/screens/HomeScreen/HomeScreen';
+import { CharacterInfoScreen } from '@/screens/CharacterInfoScreen';
+import { HomeScreen } from '@/screens/HomeScreen';
 import { ScreenNames } from '@/types/ScreenNames';
 
 import { screenOptions } from './NavigationSettings';
