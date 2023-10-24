@@ -9,7 +9,7 @@ export const CharacterInfoScreen: FC<IPageProps<ScreenNames.CHARACTER_INFO>> = (
   navigation,
 }): JSX.Element => {
   return (
-    <SafeAreaView>
+    <SafeAreaView className='grow'>
       <View>
         <Text className='mt-[40px] px-[16px] text-center text-[32px] font-bold'>
           Character Info Screen

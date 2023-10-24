@@ -1,18 +1,18 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { StatusBar, useColorScheme } from 'react-native';
+import 'react-native-get-random-values';
+
+import { StatusBar } from 'react-native';
 
 import { CharacterProvider } from './context/CharacterContext';
-import { AppNavigator } from './navigation/Navigator';
+import { useColorBarScheme } from './hooks/useColorBarScheme';
+import { AppNavigator } from './navigation/AppNavigator';
 
 const App = (): JSX.Element => {
-  const isDarkMode: boolean = useColorScheme() === 'dark';
+  const { isDarkMode } = useColorBarScheme();
 
   return (
     <CharacterProvider>
-      <NavigationContainer>
-        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-        <AppNavigator />
-      </NavigationContainer>
+      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      <AppNavigator />
     </CharacterProvider>
   );
 };

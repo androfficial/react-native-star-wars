@@ -3,6 +3,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { ScreenNames } from '@/types/ScreenNames';
 
 export type RootStackParamList = {
+  [ScreenNames.WELCOME]: undefined;
   [ScreenNames.HOME]: undefined;
   [ScreenNames.CHARACTER_INFO]: undefined;
 };
