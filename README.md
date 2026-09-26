@@ -1,79 +1,75 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Star Wars Characters
 
-# Getting Started
+React Native app that lists Star Wars characters from SWAPI, the Star Wars API, after a welcome screen. Built in October 2023 as a learning project.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Features
 
-## Step 1: Start the Metro Server
+- A welcome screen with a Star Wars background that opens the home screen after 2.5 seconds.
+- The home screen loads the first page of characters from SWAPI, with a loading indicator and an error message if the request fails.
+- Tapping a character opens the character screen, which has a button back to the home screen.
+- The status bar switches between light and dark content with the system color scheme.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Tech stack
 
-To start Metro, run the following command from the _root_ of your React Native project:
+- **Framework:** React Native 0.72 (React Native CLI), TypeScript 4
+- **State:** React Context for the loaded characters
+- **Data:** Axios 1 against SWAPI, react-native-dotenv for the API URL
+- **Routing:** React Navigation 6 (native stack)
+- **UI:** react-native-vector-icons 10
+- **Styling:** NativeWind 2 with Tailwind CSS 3 classes
+- **Tooling:** Metro, Babel with module-resolver for the `@/` alias, ESLint 8 with the Airbnb and typescript-eslint configs, Prettier 3
 
-```bash
-# using npm
-npm start
+## Getting started
 
-# OR using Yarn
-yarn start
-```
-
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### For iOS
+You need Node.js 18 and the React Native 0.72 environment: Xcode with Ruby and Bundler for iOS, Android Studio with an emulator or a device for Android.
 
 ```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+git clone https://github.com/androfficial/react-native-star-wars.git
+cd react-native-star-wars
+yarn install
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+Create a `.env` file in the project root:
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+| Variable | Purpose |
+| --- | --- |
+| `API_URL` | Base URL of SWAPI; the app requests `/people` from it |
 
-## Step 3: Modifying your App
+For iOS, install the CocoaPods dependencies:
 
-Now that you have successfully run the app, let's modify it.
+```bash
+bundle install
+cd ios
+bundle exec pod install
+cd ..
+```
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+Start Metro with `yarn start`, then run `yarn android` or `yarn ios` in a second terminal.
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+## Scripts
 
-## Congratulations! :tada:
+| Command | Description |
+| --- | --- |
+| `yarn start` | Starts the Metro bundler |
+| `yarn android` | Builds the app and runs it on an Android emulator or device |
+| `yarn ios` | Builds the app and runs it in the iOS simulator |
+| `yarn lint` | Runs ESLint |
 
-You've successfully run and modified your React Native App. :partying_face:
+## Project structure
 
-### Now what?
+```text
+src/
+  api/          Axios instance and SWAPI people requests
+  assets/       welcome screen background
+  context/      characters context
+  data/         fan counter definitions
+  hooks/        context and color scheme hooks
+  navigation/   native stack navigator, its settings and types
+  screens/      Welcome, Home and CharacterInfo
+  types/        SWAPI types, screen names and module declarations
+```
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+## Notes
 
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- Work in progress: the fan counters, search, the Clear Fans button, pagination and the character details screen are not implemented yet.
+- `API_URL` is compiled into the bundle by react-native-dotenv (`import { API_URL } from '@env'`), so after changing `.env` restart Metro with `yarn start --reset-cache`.
