@@ -14,7 +14,7 @@ export const CharacterInfoScreen: FC<IPageProps<ScreenNames.CHARACTER_INFO>> = (
         <Text className='mt-[40px] px-[16px] text-center text-[32px] font-bold'>
           Character Info Screen
         </Text>
-        <Button title='Перейти на Home' onPress={() => navigation.navigate(ScreenNames.HOME)} />
+        <Button title='Go to Home' onPress={() => navigation.navigate(ScreenNames.HOME)} />
       </View>
     </SafeAreaView>
   );
